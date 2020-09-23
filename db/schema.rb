@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_20_170140) do
+ActiveRecord::Schema.define(version: 2020_09_23_124938) do
 
   create_table "task_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 2020_09_20_170140) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
+    t.bigint "user_id_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+    t.index ["user_id_id"], name: "index_tasks_on_user_id_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -44,4 +48,5 @@ ActiveRecord::Schema.define(version: 2020_09_20_170140) do
   end
 
   add_foreign_key "taskposts", "users"
+  add_foreign_key "tasks", "users"
 end

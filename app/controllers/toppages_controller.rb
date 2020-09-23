@@ -1,8 +1,8 @@
 class ToppagesController < ApplicationController
   def index
     if logged_in?
-      @taskpost = current_user.taskposts.build
-      @taskposts = current_user.taskposts.order(id: :desc).page(params[:page])
+      @task = current_user.task.build 
+      @tasks = current_user.tasks.order(id: :desc).page(params[:page]).per(3)
     end
   end
 end

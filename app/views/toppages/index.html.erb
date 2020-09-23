@@ -1,7 +1,7 @@
 <% if logged_in? %>
   <div class="row">
     <aside class="col-sm-4">
-      <%= form_with(model: @taskpost,local: true) do |f| %>
+      <%= form_with(model: @task,local: true) do |f| %>
       <div class="form-group">
         <%= f.text_area :content, class: 'form-control', rows: 5 %>
       </div>
@@ -9,7 +9,7 @@
       <% end %>
     </aside>
     <div class="col-sm-8">
-      <%= render 'taskposts/taskposts', taskposts: @taskposts %>
+      <%= render 'task/task', task: @task %>
     </div>
   </div>
 <% else %>
